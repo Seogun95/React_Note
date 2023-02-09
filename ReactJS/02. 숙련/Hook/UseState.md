@@ -1,5 +1,5 @@
-# UseState?
-#useState #[[Hook]]
+# useState?
+#useState #hook 
 
 ```ad-summary
 title: UseState란?
@@ -56,6 +56,7 @@ export default App;
 ```
 
 이때 기대되는 값은 `setNumber`가 3번이 실행이 되었으므로 `number`가 **3** 이 될 것이라고 예상할 수 있지만, 값은 1씩만 추가된다.
+
 ![](https://i.imgur.com/y0UFQjE.gif)
 
 ### 함수형 업데이트 방식

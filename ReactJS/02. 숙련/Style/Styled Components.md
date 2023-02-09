@@ -108,9 +108,7 @@ const StBox = styled.div`
 function App() {
   return (
     <>
-      <StBox color="wh
-![](https://i.imgur.com/bxQ2nLC.png)
-ite" borderColor="blue" backgroundColor="Darkturquoise">
+      <StBox color="white" borderColor="blue" backgroundColor="Darkturquoise">
         파란 박스
       </StBox>
       <StBox color="white" borderColor="green" backgroundColor="Yellowgreen">
