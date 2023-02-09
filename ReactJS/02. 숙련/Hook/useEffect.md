@@ -79,9 +79,11 @@ useEffect(()=>{
 ```
 
 의존성 배열에 값이 **없을때**
+
 ![](https://i.imgur.com/TDZoTYL.gif)
 
 의존성 배열에 값이 **있을때**
+
 ![](https://i.imgur.com/5O0TUst.gif)
 
 - 비어있는 의존성 배열일 때는 **최초 렌더링이 될 때 단 한번만 실행**하게 된다.
