@@ -8,7 +8,7 @@ title: UseState란?
  - 클래스형 컴포넌트에서 `this.state`와 `this.setState`를 대체 한다.
 ```
 
-### UseState 기본 형태
+## UseState 기본 형태
 
 ```jsx
 const [value, setValue] = useState(0);
