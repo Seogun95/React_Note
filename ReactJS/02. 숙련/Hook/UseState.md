@@ -66,8 +66,6 @@ export default App;
 ### 함수형 업데이트 방식
 
 ```jsx
-// src/App.js
-
 import { useState } from "react";
 
 function App() {
