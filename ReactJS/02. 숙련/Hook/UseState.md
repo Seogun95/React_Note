@@ -3,7 +3,7 @@
 
 ```ad-summary
 title: UseState란?
- - useState는 가장 기본적인 [[Hook|hook]]이며, 함수 컴포넌트에서 가변적인 상태를 가지게 해준다.
+ - useState는 가장 기본적인 [[Hook#Hook?]]이며, 함수 컴포넌트에서 가변적인 상태를 가지게 해준다.
  - React에서 정의하는 `state`를 Fuction Component에서 사용하게 해주는 hook 이다.
  - 클래스형 컴포넌트에서 `this.state`와 `this.setState`를 대체 한다.
 ```
