@@ -31,11 +31,15 @@ const value = useMemo(()=> {
 
 ### Example 1
 
-`HeavyComponent` 안에서는 `const value = heavyWork()` 를 통해서 value값을 세팅해주고 있어요. 만약 `heavyWork`가 엄청나게 무거운 작업이라면 다른 state가 바뀔 때 마다 계속해서 호출이 되겠죠! 하지만 `useMemo()`로 감싸주게 되면 그럴 걱정이 없다.
+- `HeavyComponent` 안에서는 `const value = heavyWork()` 를 통해서 value값을 세팅해주고 있다.
+- 만약 `heavyWork`가 엄청나게 무거운 작업이라면 다른 state가 바뀔 때 마다 계속해서 호출이 됨!
+- 하지만 `useMemo()`로 감싸주게 되면 그럴 걱정이 없다.
 
-> `useMemo`는 무거운 작업(함수)들이 계속 리-렌더링 되는 것을 막기 위해 사용된다. 
-> 값을 저장해두고 사용하기 위함..!
-> 따라서 [[#주의 사항]]이 있다!
+```ad-note
+- `useMemo`는 무거운 작업(함수)들이 계속 리-렌더링 되는 것을 막기 위해 사용된다. 
+- 값을 저장해두고 사용하기 위함
+- 따라서 [[#주의 사항]]이 있다!
+```
 
 App.jsx
 ```jsx
