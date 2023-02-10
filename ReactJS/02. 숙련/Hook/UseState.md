@@ -9,6 +9,7 @@ title: UseState란?
 ```
 
 ### UseState 기본 형태
+
 ```jsx
 const [value, setValue] = useState(0);
 ```
@@ -20,7 +21,9 @@ const [value, setValue] = useState(0);
 	* `value` 가 원시 데이터타입이 아닌 객체 데이터 타입 (주소를 참조하는)인 경우에는 [[12. 불변성 & 순수함수#1. 불변성 이란?|불변성]]을 유지 해주어야 한다.
 
 ## UseState 리렌더링 방식
+
 기존 업데이트 방식과 함수형 업데이트 방식을 간단히 알아보자면 다음과 같다.
+
 ```jsx
 // 기존에 사용하던 방식 
 setState(number + 1); 
@@ -31,6 +34,7 @@ setState((currentNumber)=>{ return currentNumber + 1 });
 ```
 
 ### 기존의 업데이트 방식
+
 ```jsx
 import { React, useState } from 'react';
 
@@ -60,6 +64,7 @@ export default App;
 ![](https://i.imgur.com/y0UFQjE.gif)
 
 ### 함수형 업데이트 방식
+
 ```jsx
 // src/App.js
 
@@ -91,6 +96,7 @@ export default App;
 ![](https://i.imgur.com/SgpngFS.gif)
 
 ### 다르게 동작하는 이유
+
 **일반 업데이트 방식**은 버튼을 클릭했을 때 첫번째 부터 세번째줄의 있는 setCounter가 각각 실행되는 것이 아니라, #배치성(batch)로 처리한다.
 
 > [!note] 배치성? 
@@ -105,6 +111,7 @@ export default App;
 0에 1더하고, 그 다음 1에 1을 더하고, 2에 1을 더해서 3이라는 결과가 리렌더링 된다.
 
 ### 왜 리액트는 위 방식으로 동작할까?
+
 ```ad-info
 title: 공식문서
 * 리액트는 성능을 위해 단일 업데이트(batch update)로 한꺼번에 처리함.
@@ -113,6 +120,7 @@ title: 공식문서
 ```
 
 ## 요약
+
 1. useState의 업데이트 방식은 기존방식과 함수형 방식으로 총 2가지이며 각각 다르게 동작한다.
 2. useState로 원시 데이터가 아닌 참조형 데이터를 변경할 때는 불변성을 신경써야한다. 
 
