@@ -150,14 +150,13 @@ export default GrandFather;
 ```
 
  3. Father.jsx 수정
- Father로 전달하는 `props`를 넘겨주지 않고 context만든것을 통해 외부로 접근할 수 있게 해준다.
+ Father로 전달하는 `props`를 넘겨 줄 필요가 없다.
 
 ```jsx
 import React from 'react';
 import Child from './Child';
 
-const Father = ({ houseName, pocketMoney }) => {
-  console.log('Father:', houseName, pocketMoney); // 스파르타 10000
+const Father = () => {
   return <Child />;
 };
 
@@ -178,32 +177,32 @@ export default Father;
 
 
 ```jsx
-import React, { useContext } from "react";
-import { FamilyContext } from "../context/FamilyContext";
+import { React, useContext } from 'react';
+import styled from 'styled-components';
+import { FamilyContext } from '../context/FamilyContext';
 
-function Child({ houseName, pocketMoney }) {
-  const stressedWord = {
-    color: "red",
-    fontWeight: "900",
-  };
+const MySpan = styled.span`
+  color: tomato;
+  padding: 0 0.2rem;
+  font-weight: bold;
+`;
 
-  const data = useContext(FamilyContext);
-  console.log("data", data);
+const Child = () => {
+  const date = useContext(FamilyContext);
 
   return (
     <div>
-      나는 이 집안의 막내에요.
-      <br />
-      할아버지가 우리 집 이름은 <span style={stressedWord}>{data.houseName}</span>
-      라고 하셨어요.
-      <br />
-      게다가 용돈도 <span style={stressedWord}>{data.pocketMoney}</span>원만큼이나
-      주셨답니다.
+      <p>
+        저는 <MySpan>{date.houseName}</MySpan>의 막내입니다. <br />
+        할아버지가 아버지를 통해 저에게 <MySpan>{date.pocketMoney}원</MySpan>을
+        용돈으로 주셨습니다.
+      </p>
     </div>
   );
-}
+};
 
 export default Child;
+
 ```
 
 ## 주의사항
