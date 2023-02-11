@@ -1,5 +1,5 @@
-
 # Virtural Dom?
+
 ```ad-note
 title: Virtual Dom 이란?
 * UI를 표현한 객체

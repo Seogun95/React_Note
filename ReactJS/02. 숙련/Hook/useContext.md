@@ -207,9 +207,10 @@ export default Child;
 ```
 
 ## 주의사항
-- `useContext`를 사용할 때, Provider에서 제공한 value가 달라지게 되면 useContext를 사용하기 있는 모든 컴포넌트가 리렌더링이 되게 된다. 
+- `useContext`를 사용할 때, Provider에서 제공한 value가 달라지게 되면 useContext를 사용하고 있는 모든 하위 컴포넌트가 리렌더링이 되게 된다. 
+- 그래서 상태관리 라이브러리로써는 조금 부족한 부분이 있다.
 - 따라서 value 부분을 항상 신경을 써주어야한다. 
 
 ## 해결 방안 
-- 메모이제이션을 사용해야 한다. 
+- [[00. Redux 소개|Redux]]를 사용하면 상태관리면으로써 좋은 해결 방안이 된다.
 
