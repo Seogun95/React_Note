@@ -175,4 +175,67 @@ const boxColorObj = [
 })}
 ```
 
+## 공통된 스타일 컴포넌트로 생성 방법
+
+공통으로 사용되는 스타일을 컴포넌트화 해서 사용 가능하다.
+
+```
+📦src  
+ ┣ 📂styled  
+ ┃ ┗ 📜ShareStyle.js  
+```
+
+### ShareStyle.js 생성
+
+src/styled/ShareStyle.js
+```jsx
+import styled from 'styled-components';
+
+export const DivFlex = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: ${(props) => props.direction};
+`;
+
+export const MyH1 = styled(DivFlex.withComponent('h1'))`
+  font-size: 3rem;
+  color: tomato;
+`;
+
+```
+
+DivFlex라는 Div 컴포넌트를 생성하고, 만약 MyH1 등에서도 이 Div를 가져오고 싶다면, styled(DivFlex)와 같이 사용 가능하다.
+
+그리고, HTML 타입이 다르다면 withComponent를 사용해 괄호 안에 태그를 입력해주면 된다.
+
+다른 컴포넌트에서 사용가능하도록 export 해주는것을 잊으면 안된다.
+
+### ShareStyle import
+
+이제 공동 스타일을 사용하고자 하는 컴포넌트에 import 해준다.
+
+import 해줄때는 `import * as Some from '경로'` 처럼 해줘야 한다.
+
+그리고 아래와 같이 컴포넌트를 사용하면 된다.
+
+```jsx
+import React from 'react';
+import * as S from '../styled/ShareStyle';
+
+const About = () => {
+  return (
+    <>
+      <S.DivFlex direction={'row'}>
+        <S.MyH1>About 페이지 입니다.</S.MyH1>
+      </S.DivFlex>
+    </>
+  );
+};
+
+export default About;
+
+```
+
+
 [[GlobalStyles (전역 스타일링)]]
