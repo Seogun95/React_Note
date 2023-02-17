@@ -165,6 +165,67 @@ useEffect(() => {
 <ToDoInput ref={inputRef} onChange={setToDoText} value={toDoText.title} />
 ```
 
+inputBox.jsx
+```jsx
+import React, { useState, useRef, useEffect } from "react";
+		...
+import Input from "../common/Input";
+import Button from "../common/Button";
+
+function InputBox() {
+     ...
+     
+  
+  const addBtnHandler = (event) => {
+    event.preventDefault(); // 이벤트 발생을 막는 메서드
+    if (titleInput !== "") {
+      dispatch(addTodo(titleInput, descInput));
+      setTitleInput("");
+      setDescInput("");
+    }
+  };
+	//auto focus using useRef
+  const inputRef = useRef();
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [titleInput]);
+
+	// input 부모로 form 및 onSubmit을 하면 Enter로 값 전달 가능
+  return (
+    <>
+      <form action="/" onSubmit={addBtnHandler}>
+        <Input
+          refprops={inputRef}
+          onChange={titleChangeHandler}
+          value={titleInput}
+        />
+        <Input onChange={descChangeHandler} value={descInput} />
+        <Button text="추가하기" />
+      </form>
+    </>
+  );
+}
+
+export default InputBox;
+
+```
+
+주의: input의 ref 프로퍼티는 고유값이므로 props로 넘겨줄때 반드시 고유명과 다르게 받아와야 한다.
+
+Input.jsx
+```jsx
+import React from "react";
+
+export default function Input({ onChange, value, refprops }) {
+  return (
+    <>
+      <input ref={refprops} onChange={onChange} value={value} />
+    </>
+  );
+}
+
+```
+
 ```ad-note
 보통 값을 저장할 때는 useState를 사용할 텐데, 리액트 컴포넌트는 state가 변할 때 마다 다시 렌더링 되면서 컴포넌트 내부가 초기화 되지만, ==useRef는 값을 저장하기 때문에 Ref안의 값이 변경되어도 다시 렌더링 되지 않고 그대로 유지된다==. 변경 시 렌더링 발생을 막아야 하는 값을 다룰 때 편리하다.
 ```

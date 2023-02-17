@@ -13,6 +13,26 @@ state와, 여러 React 기능을 사용할 수 있도록 만든 라이브러리
 
 [노마드코더 hook 강의](https://nomadcoders.co/react-hooks-introduction/lobby?utm_source=free_course&utm_campaign=react-hooks-introduction&utm_medium=site)
 
+## Hook 규칙
+
+![](https://i.imgur.com/5HtL91D.png)
+
+
+![](https://i.imgur.com/BexuUKc.png)
+
+컴포넌트 내부 혹은 커스텀 훅 내부에서만 사용 할 수 있다.
+
+
+![](https://i.imgur.com/BIc2sK0.png)
+위는 오류가 난다!
+
+커스텀 훅 만들고 싶으면 use로 시작해야됨!
+
+![](https://i.imgur.com/WBSd7tN.png)
+
+
+
+
 ## Hook 종류
 
 * [[useState]]

@@ -213,3 +213,14 @@ export default Child;
 ## 해결 방안 
 - [[00. Redux 소개|Redux]]를 사용하면 상태관리면으로써 좋은 해결 방안이 된다.
 
+## Redux랑 공통점과 차이점
+
+| Context                                                                            | Redux                                                                                                   |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| store 또는 관리하는 것이 없다.                                                     | 하나의 store에 하나의 object로 관리 되어진다.                                                           |
+| React Components에서만 작동                                                        | React Components 밖에서도 사용 할 수 있다.                                                              |
+| prop-drilling을 피할 수 있다.                                                      | prop-drilling을 피할 수 있다.                                                                           |
+| Provider와 Comsumer 값을 React DevTool로 볼수있다.<br/>하지만 history를 알수 없다. | redux devtool이 훌륭하게 제공되어진다.                                                                  |
+| context 값이 변경되었을 시, update를 skip 할수 있는 방법이 없다.                   | history와 action과 state 변화에 되어서 확인 할 수 있다.                                                 |
+| consume하고있는 component들이 모두 업데이트 된다. (전체적으로 리렌더링)            | action을 dispatch 하고 reducer로 업데이트 할수 있다.<br/>부분적으로 업데이트 가능 (부분적으로 리렌더링) |
+| side effect에 대한 메커니즘이 없다.                                                | middleware로 side effect를 관리 할 수 있다                                                              |
